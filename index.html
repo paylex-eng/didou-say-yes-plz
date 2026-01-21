@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Didou dit oui stp 💖</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="card">
-    <div id="bear">🧸</div>
-    <h1>Veux-tu être ma Valentine ? 💕</h1>
-    <div class="buttons">
-      <button id="yes">OUI 💖</button>
-      <button id="no">NON 😢</button>
-    </div>
-  </div>
-  <script src="script.js"></script>
+  <main class="stage" role="main">
+    <section class="card" aria-labelledby="title">
+      <div class="bear-container">
+        <img id="bear" src="assets/ask.gif" alt="Nounours" />
+      </div>
+      <h1 id="title">Veux-tu être ma Valentine ? 💕</h1>
+      <p class="lead">Si tu dis oui tu verras la liste des choses qu'on pourra faire 💖</p>
+
+      <div class="buttons" aria-hidden="false">
+        <button id="yes" aria-label="Oui, j'accepte">OUI 💖</button>
+        <button id="no" aria-label="Non, je refuse">NON 😢</button>
+      </div>
+
+      <div id="message" aria-live="polite"></div>
+      <div class="confetti" id="confetti" aria-hidden="true"></div>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
