@@ -39,15 +39,15 @@ if (yes) {
   yes.addEventListener('mouseleave', () => { setBear(originalSrc); });
   yes.addEventListener('blur', () => { setBear(originalSrc); });
   yes.addEventListener('click', () => {
-        if (msg) msg.textContent = "Youpi ! J'ai hâte 💕";
-        burst(28);
-        yes.disabled = true;
-        if (no) no.disabled = true;
-        setBear(originalSrc);
-        setTimeout(() => {
-            window.location.href = '../form.html';
-        }, 1500);
-    });
+    if (msg) msg.textContent = "Youpi ! J'ai hâte 💕";
+    burst(28);
+    yes.disabled = true;
+    if (no) no.disabled = true;
+    setBear(originalSrc);
+
+    // redirection vers la page formulaire
+    window.location.href = "/form";
+  });
 }
 
 /* Evasive "non": move on click and shrink progressively; disappear below threshold */

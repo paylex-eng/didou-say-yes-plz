@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Formulaire Valentine 💖</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="stage" role="main">
+    <section class="card" aria-labelledby="title">
+      <div class="bear-container">
+        <img id="bear" src="assets/ask.gif" alt="Nounours" />
+      </div>
+      <h1 id="title">Ton petit formulaire 💌</h1>
+      <p class="lead">Remplis les infos et clique sur envoyer 💖</p>
+
+      <form id="valentineForm">
+        <input type="text" name="prenom" placeholder="Ton prénom" required><br><br>
+        <input type="text" name="message" placeholder="Un petit mot" required><br><br>
+        <button type="submit">Envoyer 💌</button>
+      </form>
+
+      <div id="message" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="js/form.js"></script>
+</body>
+</html>
