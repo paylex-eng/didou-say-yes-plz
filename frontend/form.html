@@ -3,28 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Formulaire Valentine 💖</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>Notre Saint-Valentin 💌</title>
+  <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
+
   <main class="stage" role="main">
     <section class="card" aria-labelledby="title">
+
       <div class="bear-container">
-        <img id="bear" src="assets/ask.gif" alt="Nounours" />
+        <img id="bear" src="/static/assets/ask.gif" alt="Nounours" />
       </div>
-      <h1 id="title">Ton petit formulaire 💌</h1>
-      <p class="lead">Remplis les infos et clique sur envoyer 💖</p>
+
+      <h1 id="title">Dis-moi tout 💖</h1>
+      <p class="lead">Promis, je lirai tout avec le sourire 🧸</p>
 
       <form id="valentineForm">
-        <input type="text" name="prenom" placeholder="Ton prénom" required><br><br>
-        <input type="text" name="message" placeholder="Un petit mot" required><br><br>
-        <button type="submit">Envoyer 💌</button>
+
+        <!-- Activité journée -->
+        <label class="lead">Activité de la journée</label>
+        <select name="activite" required>
+          <option value="">Choisis une option bébé</option>
+          <option value="cinema">chill + Un cinéma + câlins 🎬</option>
+          <option value="balade">Une ballade sympa 🚶‍♂️</option>
+          <option value="boutique">regarder des boutiques 🛍️</option>
+        </select>
+
+        <br><br>
+
+        <!-- Activité du soir -->
+        <label class="lead">Activité du soir</label>
+        <select name="activite_soir" required>
+          <option value="">Choisis une option mon didou</option>
+          <option value="sushis"> on mange des sushis 🍣 puis cinema </option>
+          <option value="sushis+chill">on mange des sushis 🍣 puis soirée chill 🏠</option>
+          <option value="autre">autre restaurant +option (à préciser)</option>
+          <option value="chill">on se fait une soirée chill chez nous 🏠</option>
+        </select>
+
+        <br><br>
+
+        <!-- avant de dodo -->
+        <label class="lead">Activité avant de dodo</label>
+        <select name="activite_avant_dodo" required>
+          <option value="">Choisis une option ma princesse</option>
+          <option value="doro"> on allume les leds rouges 😏 </option>
+        </select>
+
+        <br><br>
+
+        <!-- Message libre -->
+        <label class="lead">Si tu as quelques choses à dire :</label>
+        <textarea
+          name="message"
+          rows="4"
+          placeholder="Écris ce que tu veux… 💖"
+        ></textarea>
+
+        <br><br>
+
+        <button type="submit">Envoyer 💕</button>
+
       </form>
 
       <div id="message" aria-live="polite"></div>
+
     </section>
   </main>
 
-  <script src="js/form.js"></script>
+  <script src="/static/js/form.js"></script>
 </body>
 </html>

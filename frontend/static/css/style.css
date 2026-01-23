@@ -110,3 +110,62 @@ button#no.fly{position:relative;transform:translate(var(--x,0px), var(--y,0px));
 @media (prefers-reduced-motion:reduce){
   #bear, .heart, button:focus{animation:none;transition:none}
 }
+
+/* ===== Form fields (inputs, selects, textarea) ===== */
+
+input,
+select,
+textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: #fff;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+/* Placeholder text */
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255,255,255,0.45);
+}
+
+/* Select arrow fix (Chrome / Safari) */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+    linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) calc(50% - 4px),
+    calc(100% - 12px) calc(50% - 4px);
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+}
+
+/* Focus state */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent);
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 0 0 3px rgba(255,107,145,0.18);
+}
+
+/* Textarea */
+textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* Label spacing consistency */
+form label.lead {
+  display: block;
+  margin-bottom: 6px;
+  margin-top: 12px;
+}

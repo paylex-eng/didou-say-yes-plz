@@ -5,8 +5,8 @@ const msg = document.getElementById('message');
 const confetti = document.getElementById('confetti');
 
 const originalSrc = bear ? bear.getAttribute('src') : '';
-const sadSrc = 'assets/sad.gif';
-const happySrc = 'assets/happy.gif';
+const sadSrc = '/static/assets/sad.gif';
+const happySrc = '/static/assets/happy.gif';
 
 function setBear(src) {
   if (!bear) return;
@@ -39,15 +39,15 @@ if (yes) {
   yes.addEventListener('mouseleave', () => { setBear(originalSrc); });
   yes.addEventListener('blur', () => { setBear(originalSrc); });
   yes.addEventListener('click', () => {
-    if (msg) msg.textContent = "Youpi ! J'ai hâte 💕";
-    burst(28);
-    yes.disabled = true;
-    if (no) no.disabled = true;
-    setBear(originalSrc);
-
-    // redirection vers la page formulaire
-    window.location.href = "/form";
-  });
+        if (msg) msg.textContent = "Youpi ! J'ai hâte 💕";
+        burst(28);
+        yes.disabled = true;
+        if (no) no.disabled = true;
+        setBear(originalSrc);
+        setTimeout(() => {
+            window.location.href = '/form';
+        }, 1500);
+    });
 }
 
 /* Evasive "non": move on click and shrink progressively; disappear below threshold */
