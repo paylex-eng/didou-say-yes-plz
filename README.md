@@ -1,5 +1,6 @@
 # didou-say-yes-plz
-a repo to ask to your crush if she/he wants to be your valentine (draft README)
+a repo to ask to your crush if she/he wants to be your valentine
+
 ## Features
 - Interactive yes/no question prompt
 - Cute Valentine's Day themed design
@@ -8,24 +9,62 @@ a repo to ask to your crush if she/he wants to be your valentine (draft README)
 ## Getting Started
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- npm or yarn
+- Docker (recommended)
+- OR Python 3.8+ with Flask
 
-### Installation
+### Installation & Running with Docker
 
-```bash
-git clone https://github.com/yourusername/didou-say-yes-plz.git
-cd didou-say-yes-plz
-npm install
-```
-
-### Usage
+#### Build the Docker image
 
 ```bash
-npm start
+docker build -t didou-say-yes-plz .
 ```
 
-Open your browser and navigate to `http://localhost:5000` to see your Valentine's question.
+#### Run the container
+
+```bash
+docker run -d \
+  -p 44333:44333 \
+  -v $(pwd)/responses.json:/app/responses.json \
+  --name didou-app \
+  didou-say-yes-plz
+```
+
+**Options:**
+- `-d` : Run in detached mode (background)
+- `-p 44333:44333` : Map port 44333 (host:container)
+- `-v $(pwd)/responses.json:/app/responses.json` : Volume to persist responses
+- `--name didou-app` : Container name
+
+#### Access the application
+
+Once the container is running:
+- **Home page:** http://localhost:44333
+- **Form:** http://localhost:44333/form
+
+#### Useful Docker commands
+
+```bash
+# View logs
+docker logs didou-app
+
+# Stop the container
+docker stop didou-app
+
+# Restart the container
+docker start didou-app
+
+# Remove the container
+docker rm -f didou-app
+```
+
+### Alternative: Running without Docker
+
+```bash
+cd backend
+pip install flask
+python app.py
+```
 
 ## Customization
 
