@@ -1,5 +1,5 @@
 # didou-say-yes-plz
-a repo to ask to your crush if she/he wants to be your valentine
+A repo to ask your crush if she/he wants to be your valentine.
 
 ## Features
 - Interactive yes/no question prompt
@@ -12,53 +12,38 @@ a repo to ask to your crush if she/he wants to be your valentine
 - Docker (recommended)
 - OR Python 3.8+ with Flask
 
-### Installation & Running with Docker
+### Using the prebuilt Docker image from GitHub Container Registry
 
-#### Build the Docker image
+The image is available on GitHub Container Registry:
+
+ghcr.io/paylex-eng/valentine-app:latest
+
+> ⚠️ Before running the container, you must create the `responses.json` file:
 
 ```bash
-docker build -t didou-say-yes-plz .
+mkdir -p output
+echo "[]" > output/responses.json
 ```
 
-#### Run the container
+This ensures that Docker mounts a proper file and not a directory.
 
+Run the container
 ```bash
 docker run -d \
   -p 44333:44333 \
-  -v $(pwd)/responses.json:/app/responses.json \
-  --name didou-app \
-  didou-say-yes-plz
+  -v $(pwd)/output/responses.json:/app/responses.json \
+  --name valentine-app \
+  ghcr.io/paylex-eng/valentine-app:latest
 ```
 
-**Options:**
-- `-d` : Run in detached mode (background)
-- `-p 44333:44333` : Map port 44333 (host:container)
-- `-v $(pwd)/responses.json:/app/responses.json` : Volume to persist responses
-- `--name didou-app` : Container name
-
-#### Access the application
-
+Access the application
 Once the container is running:
-- **Home page:** http://localhost:44333
-- **Form:** http://localhost:44333/form
+	•	Home page: http://localhost:44333
+	•	Form: http://localhost:44333/form
 
-#### Useful Docker commands
+Useful Docker commands
 
-```bash
-# View logs
-docker logs didou-app
-
-# Stop the container
-docker stop didou-app
-
-# Restart the container
-docker start didou-app
-
-# Remove the container
-docker rm -f didou-app
-```
-
-### Alternative: Running without Docker
+### Alternative: Running locally without Docker
 
 ```bash
 cd backend
@@ -69,3 +54,5 @@ python app.py
 ## Customization
 
 Edit the question and styling in the configuration files to personalize your message.
+
+---
